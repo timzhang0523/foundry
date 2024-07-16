@@ -2,5 +2,19 @@
 src = "src"
 out = "out"
 libs = ["lib"]
-
+solc = "0.8.20"
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+# cast wallet import your-account-name --interactive ====> import priviate key to ur foundry.keystore
+# cast abi-encode "constructor(string,string)" "xxxxxx" "xxxx"
+# forge create --rpc-url sepolia --account timzhang0523  src/myToken.sol:MyToken  --constructor-args "ZZL token" "TLC"
+# forge v --chain sepolia 0x571A332E0fE64a784Cfa8129c06799206341f4aC src/myToken.sol:MyToken  --constructor-args 0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000095a5a4c20746f6b656e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025a4c000000000000000000000000000000000000000000000000000000000000
+
+
+[rpc_endpoints]
+sepolia = "${SEPOLIA_RPC_URL}"
+local = "http://127.0.0.1:8545"
+mainnet = "${RPC_MAINNET}" # it's recommened to do either this
+
+
+[etherscan]
+sepolia = { key = "${ETHERSCAN_API}" }
