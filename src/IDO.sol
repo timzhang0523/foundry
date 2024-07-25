@@ -61,9 +61,9 @@ contract IDO {
 
     function refund() external onlyFailed {
         require(balances[msg.sender] >= 0,"Insufficient balance~");
+        balances[msg.sender] = 0;
         (bool success,) = msg.sender.call{value: balances[msg.sender]}("");
         require(success, "IDO: transfer failed");
-        balances[msg.sender] = 0;
         emit Refund(msg.sender, balances[msg.sender]);
     }
     modifier onlySuccess() {
